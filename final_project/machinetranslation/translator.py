@@ -17,13 +17,13 @@ language_translator = LanguageTranslatorV3(\
 language_translator.set_service_url(url)
 
 def englishToFrench(englishText):
-    #write the code here
+    '''function that translates and returns en-fr'''
     frenchText = language_translator.translate(\
         text=englishText, model_id='en-fr')
     return frenchText
 
 def frenchToEnglish(frenchText):
-    #write the code here
+    '''function that translates and returns fr-en'''
     englishText = language_translator.translate(\
     text=frenchText, model_id='fr-en')
     return englishText
