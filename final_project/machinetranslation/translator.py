@@ -1,4 +1,4 @@
-
+import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
@@ -20,11 +20,10 @@ language_translator.set_service_url('https://api.eu-gb.language-translator.watso
 def english_to_french(english_text):
     #write the code here
     french_text = language_translator.translate(text=english_text,model_id='en-fr').get_result()
-    return french_text
+    return list(french_text['translations'][0].values())[0]
 
 
 def french_to_english(french_text):
     #write the code here
     english_text = language_translator.translate(text=french_text,model_id='fr-en').get_result()
-    return english_text
-
+    return list(english_text['translations'][0].values())[0]
