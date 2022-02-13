@@ -1,7 +1,11 @@
-import json
+"""
+This module going to translation from English to Franch and Frach to English.
+"""
+#import json
+import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -17,23 +21,25 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url(url)
 
 
-def englishToFrench(englishText):
+#
+def english_to_french(eng_text):
+    """
+    This function translate from Enghish to French
+    """
     #write the code here
     translation = language_translator.translate(
-    text = englishText,
-    model_id='en-es').get_result()
-    frenchText=json.dumps(translation, indent=2, ensure_ascii=False)
-    print(frenchText)
-    return frenchText
+    text = eng_text,
+    model_id='en-fr').get_result()
+    french_text=translation['translations'][0]['translation']
+    return french_text
 
-def frenchToEnglish(frenchText):
+def french_to_english(fr_text):
+    """
+    This function translate from  French to English
+    """
     #write the code here
     translation = language_translator.translate(
-    text = frenchText,
-    model_id='es-en').get_result()
-    englishText=json.dumps(translation, indent=2, ensure_ascii=False)
-    print(englishText)
-    return englishText
-
-frenchToEnglish('Hola, ¿cómo estás hoy?')
-englishToFrench('yes')
+    text = fr_text,
+    model_id='fr-en').get_result()
+    english_text=translation['translations'][0]['translation']
+    return english_text
