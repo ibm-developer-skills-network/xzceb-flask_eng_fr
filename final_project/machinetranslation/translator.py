@@ -16,7 +16,7 @@ language_translator = LanguageTranslatorV3(
 )
 language_translator.set_service_url(url)
 
-def english_to__french(english_text):
+def english_to_french(english_text):
     """ English to French Translator"""
     #write the code here
     french_text = language_translator(
