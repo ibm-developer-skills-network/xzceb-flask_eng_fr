@@ -1,24 +1,36 @@
-from translator import french_to_english, english_to_french
-import unittest
+# import json
+import os
+from ibm_watson import LanguageTranslatorV3
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+from dotenv import load_dotenv
 
-class Test_e_to_f(unittest.TestCase): 
-    """ Testing english to french translator """
-    def test1(self): 
-        try:
-            self.assertEqual(english_to_french(""), "")
-        except:
-            print("cannotpass empty string")
-        self.assertEqual(english_to_french("Hello"), "Bonjour")
+load_dotenv()
+
+apikey = os.environ['apikey']
+url = os.environ['url']
+
+authenticator = IAMAuthenticator(apikey)
+language_translator = LanguageTranslatorV3(
+    version='2018-05-01',
+    authenticator=authenticator
+)
+language_translator.set_service_url(url)
+
+def english_to__french(english_text):
+    """ English to French Translator"""
+    #write the code here
+    french_text = language_translator(
+    english_text,
+    model_id='en-fr').get_result()
+    french_text = french_text.get("translations")[0].get("translation")
+    return french_text
 
 
-class Test_f_to_e(unittest.TestCase): 
-    def test1(self): 
-        try:
-            self.assertEqual(french_to_english(""), "")
-        except:
-             print("cannotpass empty string")
-        self.assertEqual(french_to_english("Bonjour"), "Hello")
-
-
-
-unittest.main()
+def french_to_english(french_text):
+    """ French to English Translator"""
+    #write the code here
+    english_text = language_translator.translate(
+    french_text,
+    model_id='fr-en').get_result()
+    english_text = english_text.get("translations")[0].get("translation")
+    return english_text
