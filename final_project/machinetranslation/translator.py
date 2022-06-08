@@ -8,13 +8,23 @@ load_dotenv()
 
 apikey = os.environ['apikey']
 url = os.environ['url']
+auth = IAMAuthenticator(apikey)
+
+translator = LanguageTranslatorV3(authenticators=auth)
+translator.set_service_url(url)
 
 
 def englishToFrench(englishText):
-    #write the code here
+    frenchText = translator.translate(
+        englishText,
+        model_id='en-fr'
+    ).get_result()
     return frenchText
 
 
 def frenchToEnglish(frenchText):
-    #write the code here
+    englishText = translator.translate(
+        frenchText,
+        model_id='fr-en'
+    ).get_result()
     return englishText
