@@ -15,16 +15,18 @@ translator.set_service_url(url)
 
 
 def englishToFrench(englishText):
-    frenchText = translator.translate(
+    text = translator.translate(
         englishText,
         model_id='en-fr'
     ).get_result()
+    frenchText = json.dumps(text)
     return frenchText
 
 
 def frenchToEnglish(frenchText):
-    englishText = translator.translate(
+    text = translator.translate(
         frenchText,
         model_id='fr-en'
     ).get_result()
+    englishText = json.dumps(text)
     return englishText
