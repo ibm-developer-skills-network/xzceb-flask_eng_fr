@@ -1,4 +1,4 @@
-from machinetranslation import translator
+#from machinetranslation import translator
 from flask import Flask, render_template, request
 import json
 from ibm_watson import LanguageTranslatorV3
@@ -9,8 +9,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask("Web Translator")
-apikey = os.environ['apikey']
-url = os.environ['url']
+#apikey = os.environ['apikey']
+apikey='GdhuAfL6cvDRKLk4GygG2_rYvVjtqs3zy7ds-9N_e9GV'
+#url = os.environ['url']
+url = 'https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/77de2dd6-2382-48b3-8549-77221c4c39e0'
 
 @app.route("/englishToFrench")
 def englishToFrench():
@@ -35,9 +37,7 @@ def frenchToEnglish():
 @app.route("/")
 def renderIndexPage():
     # Write the code to render template
-    app.get("/", (req, res)
-    return res.render(index);
-
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
