@@ -7,6 +7,8 @@ class TestE2F(unittest.TestCase):
     def test1(self):
         '''test the translation from English to French'''
         self.assertEqual(english_to_french("Book"),"Livre")
+    def test_a(self):
+        '''test the translation from English to French, text given by Coursera'''
         self.assertNotEqual(english_to_french(0),0)
         self.assertEqual(english_to_french("Hello"),"Bonjour")
 
@@ -15,6 +17,8 @@ class TestF2E(unittest.TestCase):
     def test2(self):
         '''test the translation from French to English'''
         self.assertEqual(french_to_english("Aigle"),"Eagle")
+    def test_b(self):
+        '''test the translation from French to English, text given by Coursera'''
         self.assertNotEqual(french_to_english(0),0)
         self.assertEqual(french_to_english("Bonjour"),"Hello")
 
