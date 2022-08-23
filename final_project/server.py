@@ -13,7 +13,7 @@ def english_to_french():
 @app.route("/frenchToEnglish")
 def french_to_english():
     textToTranslate = request.args.get('textToTranslate')
-    french_text= translator.french_to_english(textToTranslate)
+    english_text= translator.french_to_english(textToTranslate)
     return english_text
 
 @app.route("/")
