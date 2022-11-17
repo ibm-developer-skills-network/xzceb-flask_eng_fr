@@ -7,7 +7,7 @@ let translateToFrench = ()=>{
             document.getElementById("translated_text").innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "englishToFrench?textToTranslate"+"="+textToTranslate, true);
+        xhttp.open("GET", "englishToFrench?textToTranslate"+"="+textToTranslate, true);
     xhttp.send();
 }
 
