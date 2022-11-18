@@ -1,24 +1,31 @@
-from machinetranslation import translator
-from flask import Flask, render_template, request
-import json
-
+"""
+This module defines the application routes
+"""
+from flask import Flask, request, render_template
+from ibm_translator import translator
 app = Flask("Web Translator")
 
-@app.route("/englishToFrench")
-def englishToFrench():
-    textToTranslate = request.args.get('textToTranslate')
-    # Write your code here
-    return "Translated text to French"
-
-@app.route("/frenchToEnglish")
-def frenchToEnglish():
-    textToTranslate = request.args.get('textToTranslate')
-    # Write your code here
-    return "Translated text to English"
-
 @app.route("/")
-def renderIndexPage():
-    # Write the code to render template
+def renderIndexPage(): #home page of the localhost
+    return render_template("index.html")
+
+# /to_english?text="English word"
+@app.route("/frenchToEnglish", methods=["GET"])
+def to_english():  # put application's code here
+    args = request.args.to_dict()
+    if "textToTranslate" in args:
+        return translator.french_to_english(args["textToTranslate"])
+    return "Please pass `textToTranslate` as a query param"
+
+# /to_french?text="French word"
+@app.route("/englishToFrench", methods=["GET"])
+def to_french():  # put application's code here
+    args = request.args.to_dict()
+    if "textToTranslate" in args:
+        return translator.english_to_french(args["textToTranslate"])
+    return "Please pass `textToTranslate` as a query param"
+
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run()
+
