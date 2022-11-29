@@ -20,7 +20,7 @@ language_translator = LanguageTranslatorV3(
 
 language_translator.set_service_url(url)
 
-language_translator.set_disable_ssl_verification(True)
+#language_translator.set_disable_ssl_verification(True)
 
 def english_to_french(english_text):
     #function for translating from english to french
