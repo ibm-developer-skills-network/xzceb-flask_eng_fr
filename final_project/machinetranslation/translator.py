@@ -1,7 +1,7 @@
-"""Module providingFunction translator."""
+"""Translator French to English."""
 import json
 import os
-from ibm_watson import LanguageTranslatorV3
+from ibm_watson import LanguageTranslatorV3 ,ApiException
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from dotenv import load_dotenv
 
@@ -18,24 +18,28 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url(url)
 
 def english_to_french(english_text):
-    '''English to french function'''
-    translation = language_translator.translate(
-        text=english_text,
-        source='en',
-        target='fr'
-    ).get_result()
-    french_text = translation['translations'][0]['translation']
-    print(json.dumps(translation, indent=2, ensure_ascii=False))
+    '''English to french via Watson API'''
+    try:
+        translation = language_translator.translate(
+            text=english_text,
+            model_id='en-fr'
+        )
+        french_text = translation.get_result()['translations'][0]['translation']
+    except ApiException as exception:
+        print(f"Api error: {str(exception.code)}:{exception.message}" + "\n")
+        print(json.dumps(translation, indent=2, ensure_ascii=False))
     return french_text
 
 
 def french_to_english(french_text):
-    '''French to english function'''
-    translation = language_translator.translate(
-        text=french_text,
-        source='en',
-        target='fr'
-    ).get_result()
-    english_text = translation['translations'][0]['translation']
-    print(json.dumps(translation, indent=2, ensure_ascii=False))
+    '''French to english via Watson API'''
+    try:
+        translation = language_translator.translate(
+            text=french_text,
+            model_id='fr-en'
+        )
+        english_text = translation.get_result()['translations'][0]['translation']
+    except ApiException as exception:    
+        print(f"Api error: {str(exception.code)}:{exception.message}" + "\n")
+        print(json.dumps(translation, indent=2, ensure_ascii=False))
     return english_text
