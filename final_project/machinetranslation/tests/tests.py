@@ -1,5 +1,5 @@
+"""Unit test functions French to English."""
 import unittest
-
 from translator import french_to_english, english_to_french
 
 class testFrenchToEnglish(unittest.TestCase):
@@ -9,7 +9,6 @@ class testFrenchToEnglish(unittest.TestCase):
 
     def test_null(self):
         self.assertEqual(french_to_english(""),"")
-
 
 class testEnglishToFrench(unittest.TestCase):
     def test_translation(self):
