@@ -1,5 +1,4 @@
 import unittest
-
 from translator import english_to_french, french_to_english
 
 class TestE2F(unittest.TestCase):
@@ -26,11 +25,11 @@ class TestF2E(unittest.TestCase):
         """Test for null input for french_to_english"""
         self.assertEqual(french_to_english(' '), ' ')
     
-    def test_F2E_null(self):
+    def test_F2E_translation(self):
         """Test for the translation of the french word"""
         self.assertEqual(french_to_english('Bonjour'), 'Hello')
     
-    def test_F2E_null(self):
+    def test_F2E_not_translation(self):
         """Test for the not translation of the french word"""
         self.assertNotEqual(french_to_english('Bonjour'), 'Bonjour')
 
