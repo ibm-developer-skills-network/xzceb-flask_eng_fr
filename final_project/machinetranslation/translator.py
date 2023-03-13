@@ -1,22 +1,23 @@
-import os
 import json
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 apikey = os.environ['apikey']
 url = os.environ['url']
-VERSION = '2018-05-01'
+version='2019-04-30'
 
-authenticator = IAMAuthenticator('{apikey}')
+authenticator = IAMAuthenticator(apikey)
 language_translator = LanguageTranslatorV3(
-    version='2018-05-01',
+    version=version,
     authenticator=authenticator
 )
 
-language_translator.set_service_url('{url}')
+language_translator.set_service_url(url)
+
 
 def english_to_french(englishText):
     """

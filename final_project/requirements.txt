@@ -2,14 +2,14 @@ ibm-watson==4.4.1
 pyJWT==1.7.1
 
 # Pin dependancies that might cause breakage
-Werkzeug==2.2.2
+Werkzeug==2.0.3
 
 # Build dependencies
-Flask==2.2.2
+Flask==2.0.3
 Flask-WTF==0.14.3
-Flask-SQLAlchemy==3.0.2
+Flask-SQLAlchemy==2.5.1
 psycopg2-binary==2.9.5
-python-dotenv==0.21.1
+python-dotenv==0.20.0
 Flask-Talisman==1.0.0
 Flask-Cors==3.0.10
 
@@ -18,8 +18,8 @@ gunicorn==20.1.0
 honcho==1.1.0
 
 # Code quality
-pylint==2.15.10
-flake8==6.0.0
+pylint==2.13.0
+flake8==4.0.0
 black==22.3.0
 
 # Testing dependencies
@@ -28,8 +28,8 @@ pinocchio==0.4.3
 factory-boy==3.2.1
 
 # Code Coverage
-coverage==7.1.0
+coverage==6.2
 codecov==2.1.12
 
 # Utilities
-httpie==3.2.1
+httpie==2.6.0
