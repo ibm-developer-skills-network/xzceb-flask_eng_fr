@@ -3,14 +3,14 @@ from flask import Flask, render_template, request
 
 app = Flask("Web Translator")
 
-@app.route("/machinetranslation/translator/englishToFrench",methods=['POST'])
+@app.route("/englishToFrench")
 def englishToFrench():
     textToTranslate = request.args.get('textToTranslate')
     translatedText=translator.english_To_French(textToTranslate)
     # Write your code here
     return translatedText
 
-@app.route("/machinetranslation/translator/frenchToEnglish",methods=['POST'])
+@app.route("/frenchToEnglish")
 def frenchToEnglish():
     textToTranslate = request.args.get('textToTranslate')
     translatedText=translator.french_To_English(textToTranslate)
@@ -22,4 +22,4 @@ def renderIndexPage():
     
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="localhost", port=8080)
