@@ -13,10 +13,6 @@ def english_To_French(englishText):
     authenticatorkey = IAMAuthenticator(apikey)
     language_translator = LanguageTranslatorV3(version='2018-05-01',authenticator=authenticatorkey)
     language_translator.set_service_url(url)
-    if englishText == " ":
-        print("ERROR: Please enter some text")
-    else:
-        pass
     french_Text = language_translator.translate(text=englishText, model_id="en-fr").get_result()
     return french_Text['translations'][0]['translation']
 
@@ -25,9 +21,5 @@ def french_To_English(frenchText):
     authenticatorkey = IAMAuthenticator(apikey)
     language_translator = LanguageTranslatorV3(version='2018-05-01',authenticator=authenticatorkey)
     language_translator.set_service_url(url)
-    if frenchText == " ":
-        print("ERROR: Please enter some text")
-    else:
-        pass
     english_Text = language_translator.translate(text=frenchText, model_id="fr-en").get_result()
     return english_Text['translations'][0]['translation']
