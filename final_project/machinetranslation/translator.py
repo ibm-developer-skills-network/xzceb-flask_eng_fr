@@ -1,6 +1,6 @@
-# mymodule.py
-# Author: John Doe
-# Created: January 1, 2022
+# translator.py
+# Author: Tyler Hurtt
+# Created: April 27, 2023
 
 """
 Translator module.
