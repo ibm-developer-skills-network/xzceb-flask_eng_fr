@@ -1,5 +1,6 @@
 """ Module Test functionality Null and 
 Translation English to French and French to English. """
+__import__(name:machinetranslation)
 import unittest
 from translator import english_to_french, french_to_english
 
