@@ -26,15 +26,17 @@ def englishToFrench(englishText):
     text=englishText,
     model_id='en-fr').get_result()
     
-    frenchText = (json.dumps(translation, indent=2, ensure_ascii=False))
+    frenchText = translation['translations'][0]['translation']
     return frenchText
 
+
 # French to English Function
-def FrenchToEnglish(FrenchText):
+def frenchToEnglish(FrenchText):
 
     translation = language_translator.translate(
     text=FrenchText,
     model_id='fr-en').get_result()
     
-    englishText = (json.dumps(translation, indent=2, ensure_ascii=False))
+    englishText  = translation['translations'][0]['translation']
+        
     return englishText
