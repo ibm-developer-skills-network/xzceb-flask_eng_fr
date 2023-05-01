@@ -3,12 +3,16 @@ import json
 import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 # Read environment variables
-load_dotenv()
-apikey = os.environ['apikey']
-url = os.environ['url']
+#load_dotenv()
+#apikey = os.environ['apikey']
+#url = os.environ['url']
+
+apikey = 'Mx5PuP9ygAMfBA8weZLzQHnMaTF9pNKg3f9RrdQcRHFB'
+url = 'https://api.us-east.language-translator.watson.cloud.ibm.com/instances/494b052c-bc36-4015-ab71-9e847e0e0a0f'
+
 
 # Create instance of IBM Watson Language Translator 
 authenticator = IAMAuthenticator(apikey)
