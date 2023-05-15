@@ -29,13 +29,12 @@ language_translator = LanguageTranslatorV3(
 
 language_translator.set_service_url(url)
 
-
 def french_to_english(french_text):
     """
     Translates a given French text to English using IBM Watson Language Translator.
 
     Args:
-        french_text (str): The French text to be translated.
+        frenchText (str): The French text to be translated.
 
     Returns:
         str: The translated English text.
@@ -44,13 +43,12 @@ def french_to_english(french_text):
     english_text = translation['translations'][0]['translation']
     return english_text
 
-
 def english_to_french(english_text):
     """
     Translates a given English text to French using IBM Watson Language Translator.
 
     Args:
-        english_text (str): The English text to be translated.
+        englishText (str): The English text to be translated.
 
     Returns:
         str: The translated French text.
