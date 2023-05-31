@@ -23,4 +23,3 @@ let translateToEnglish = ()=>{
     xhttp.open("GET", "frenchToEnglish?textToTranslate"+"="+textToTranslate, true);
     xhttp.send();
 }
-
