@@ -1,2 +1,1 @@
-from . import translator
-from tests import tests
+from machinetranslation import translator
