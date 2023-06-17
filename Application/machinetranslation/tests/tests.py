@@ -9,8 +9,7 @@ class TranslatorTests(unittest.TestCase):
         self.assertEqual("mon nom est", translation2)
        
     def test_french_to_english(self):
-        translation1=french_to_english("Bonjour")
-        self.assertEqual("Hello", translation1)
+        self.assertEqual("Hello", frensh_to_english("Bonjour"))
 
         translation2 = french_to_english("mon nom est")
         self.assertEqual("my name is", translation2)
