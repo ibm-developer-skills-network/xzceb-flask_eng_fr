@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+ibm-watson
+python-dotenv
+pyJWT
+deep_translator
