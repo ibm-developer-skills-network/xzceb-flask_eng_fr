@@ -1,3 +1,5 @@
+import json
+import os
 from deep_translator import MyMemoryTranslator
 
 def english_to_french(english_text):
